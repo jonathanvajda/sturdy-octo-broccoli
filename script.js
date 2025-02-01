@@ -1,4 +1,4 @@
-const map = L.map('map').setView([/* Default Latitude */, /* Default Longitude */], /* Default Zoom */);
+const map = L.map('map').setView([27.587322195882756, -99.49490653640495], 10);
 
 // ... (Tile layer code remains the same)
 
