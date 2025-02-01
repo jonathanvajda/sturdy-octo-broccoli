@@ -7,6 +7,10 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 let currentZoom = map.getZoom(); // Store the current zoom level
 
+const addMarkerButton = document.getElementById('add-marker-button');
+
+addMarkerButton.addEventListener('click', addMarker); // Assign the function
+
 function addMarker() {
     // ... (Get latitude, longitude, and label from input fields - same as before)
 
