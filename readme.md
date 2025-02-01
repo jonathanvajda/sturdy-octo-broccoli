@@ -5,4 +5,4 @@ One page you gotta get the data
 
 Another page for displaying the data in a map
 
-http://jonathanvajda.github.io/study-octo-broccoli
+http://jonathanvajda.github.io/sturdy-octo-broccoli
