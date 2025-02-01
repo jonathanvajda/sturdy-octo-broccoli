@@ -1,6 +1,8 @@
 const map = L.map('map').setView([27.587322195882756, -99.49490653640495], 10);
 
-// ... (Tile layer code remains the same)
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
 
 let currentZoom = map.getZoom(); // Store the current zoom level
 
