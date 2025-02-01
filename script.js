@@ -1,6 +1,6 @@
 const map = L.map('map').setView([/* Initial Latitude */, /* Initial Longitude */], /* Initial Zoom */); // Set initial view
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { // Choose a tile provider
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
