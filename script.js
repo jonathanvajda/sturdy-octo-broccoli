@@ -1,22 +1,29 @@
-const map = L.map('map').setView([/* Initial Latitude */, /* Initial Longitude */], /* Initial Zoom */); // Set initial view
+const map = L.map('map').setView([/* Default Latitude */, /* Default Longitude */], /* Default Zoom */);
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+// ... (Tile layer code remains the same)
+
+let currentZoom = map.getZoom(); // Store the current zoom level
 
 function addMarker() {
-    const latitude = document.getElementById('latitude').value;
-    const longitude = document.getElementById('longitude').value;
-    const label = document.getElementById('label').value;
+    // ... (Get latitude, longitude, and label from input fields - same as before)
 
-    if (latitude && longitude && label) { // Check if all fields are filled
-        const marker = L.marker([latitude, longitude]).addTo(map);
-        marker.bindPopup(label).openPopup(); // Add popup with label
+    if (latitude && longitude && label) {
+        const newLatLng = [latitude, longitude]; // Store new coordinates
 
-        // Clear input fields
+        const marker = L.marker(newLatLng).addTo(map);
+        marker.bindPopup(label).openPopup();
+
+        // Center the map on the new marker
+        map.setView(newLatLng, Math.max(currentZoom, 13)); // Center and zoom, but not more than 13
+
+        // Clear input fields (same as before)
         document.getElementById('latitude').value = '';
         document.getElementById('longitude').value = '';
         document.getElementById('label').value = '';
+
+        // Update currentZoom
+        currentZoom = map.getZoom();
+
     } else {
         alert("Please fill in all fields.");
     }
