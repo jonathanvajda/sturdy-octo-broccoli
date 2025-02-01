@@ -8,11 +8,21 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 let currentZoom = map.getZoom(); // Store the current zoom level
 
 const addMarkerButton = document.getElementById('add-marker-button');
-
-addMarkerButton.addEventListener('click', addMarker); // Assign the function
+addMarkerButton.addEventListener('click', addMarker);
 
 function addMarker() {
-    // ... (Get latitude, longitude, and label from input fields - same as before)
+    const latitudeInput = document.getElementById('latitude');
+    const longitudeInput = document.getElementById('longitude');
+    const labelInput = document.getElementById('label');
+
+    if (!latitudeInput || !longitudeInput || !labelInput) {
+        console.error("One or more input fields not found!"); // Debugging
+        return; // Stop execution
+    }
+
+    const latitude = latitudeInput.value;
+    const longitude = longitudeInput.value;
+    const label = labelInput.value;
 
     if (latitude && longitude && label) {
         const newLatLng = [latitude, longitude]; // Store new coordinates
